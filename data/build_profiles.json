@@ -11,9 +11,15 @@
     "isProtected": false,
     "deleteAfter": 24,
     "config": {},
-    "lastBuild": "job-6",
-    "lastSuccess": "job-5",
-    "lastFail": "job-6"
+    "lastBuild": "94f24f01-9a65-4a48-be11-a94618cc9deb",
+    "lastSuccess": "94f24f01-9a65-4a48-be11-a94618cc9deb",
+    "lastFail": "94f24f01-9a65-4a48-be11-a94618cc9deb",
+    "testCases": {
+      "1": 2,
+      "2": 2,
+      "3": 1,
+      "4": 5
+    }
   },
   {
     "id": "profile-2",
@@ -45,7 +51,13 @@
     "config": {},
     "lastBuild": "job-7",
     "lastSuccess": null,
-    "lastFail": "job-4"
+    "lastFail": "job-4",
+    "testCases": {
+      "1": 2,
+      "2": 2,
+      "3": 1,
+      "4": 4
+    }
   },
   {
     "id": "profile-4",
@@ -144,6 +156,12 @@
     "id": "31b0b7d3-3f54-4478-9372-0e50194f772c",
     "lastBuild": "f6ea6859-1840-4013-b0d4-d17129454f25",
     "lastSuccess": "f6ea6859-1840-4013-b0d4-d17129454f25",
-    "lastFail": "f6ea6859-1840-4013-b0d4-d17129454f25"
+    "lastFail": "f6ea6859-1840-4013-b0d4-d17129454f25",
+    "testCases": {
+      "1": 2,
+      "2": 2,
+      "3": 1,
+      "4": 4
+    }
   }
 ]

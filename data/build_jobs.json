@@ -388,5 +388,32 @@
     "date": 20250620,
     "userCreated": "admin",
     "id": "f6ea6859-1840-4013-b0d4-d17129454f25"
+  },
+  {
+    "name": "Build Job for a8a6c6ba-8528-4564-950d-2da77d761db4",
+    "projectId": "a8a6c6ba-8528-4564-950d-2da77d761db4",
+    "profileId": "profile-1",
+    "status": 1,
+    "date": 20250624,
+    "userCreated": "admin",
+    "id": "d0274837-a218-43c6-b036-e56de8b9a445"
+  },
+  {
+    "name": "Build Job for a8a6c6ba-8528-4564-950d-2da77d761db4",
+    "projectId": "a8a6c6ba-8528-4564-950d-2da77d761db4",
+    "profileId": "profile-1",
+    "status": 1,
+    "date": 20250624,
+    "userCreated": "admin",
+    "id": "f61f4c82-d137-4982-b831-966624f473c4"
+  },
+  {
+    "name": "Build Job for a8a6c6ba-8528-4564-950d-2da77d761db4",
+    "projectId": "a8a6c6ba-8528-4564-950d-2da77d761db4",
+    "profileId": "profile-1",
+    "status": 1,
+    "date": 20250624,
+    "userCreated": "admin",
+    "id": "94f24f01-9a65-4a48-be11-a94618cc9deb"
   }
 ]

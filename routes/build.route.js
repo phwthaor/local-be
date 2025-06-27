@@ -60,19 +60,6 @@ router.get("/Profile", async (req, res) => {
   }
 });
 
-router.get("/Profile/:id", async (req, res) => {
-  try {
-    const profileId = req.params.id;
-    const profile = await buildService.getProfileById(profileId);
-    if (!profile) {
-      return res.status(404).json({ message: "Profile not found" });
-    }
-    res.status(200).json({ profile });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
 router.post("/Run", async (req, res) => {
   try {
     const project = req.body.project;
@@ -108,5 +95,45 @@ router.post("/Run", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+router.get("/TestCase", async (req, res) => {
+  try {
+    const profileId = req.query.profile
+    if (profileId) {
+      const testCases = await buildService.getTestCasesByProfileId(profileId);
+      if (!testCases) {
+        return res.status(404).json({ message: "not found" });
+      }
+      return res.status(200).json({ testCases })
+    }
+
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+})
+router.patch("/TestCase", async(req,res)=>{
+  try{
+    const idTestCase = req.query.id
+    const updateData = req.body
+    if(!idTestCase){
+      return res.status(400).json({ message: "Missing id query param" });
+    }
+     const existingTestCase = await buildService.getTestCaseById(idTestCase);
+     if (!existingTestCase) {
+      return res.status(404).json({ message: "Test case not found" });
+    }
+    const updatedTestCase = {
+      ...existingTestCase,
+      ...updateData,
+    };
+    await buildService.updateTestCase(idTestCase, updatedTestCase);
+
+    return res.status(200).json({ message: "Updated successfully", data: updatedTestCase });
+  }
+  catch(error){
+     res.status(500).json({ message: error.message })
+  }
+
+})
 
 module.exports = router;

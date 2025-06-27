@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const PROFILE_PATH = "./data/build_profiles.json";
 const JOB_PATH = "./data/build_jobs.json";
+const TEST_PATH = "./data/test_cases.json"
 
 // ================== PROFILE ==================
 
@@ -15,6 +16,7 @@ async function getProfiles() {
     return [];
   }
 }
+
 
 async function getProfileById(id) {
   const profiles = await getProfiles();
@@ -69,6 +71,41 @@ async function createJob(job) {
   return newJob;
 }
 
+async function getAllTestCases() {
+  try {
+    const data = await fs.readJson(TEST_PATH)
+    return data;
+  } catch (err) {
+    return []
+  }
+}
+async function getTestCasesByProfileId(id) {
+  try {
+    const data = await getAllTestCases();
+    return data.filter((testcase) => testcase.profile === id)
+  } catch (err) {
+    return []
+  }
+}
+async function getTestCaseById(id) {
+  try {
+    const data = await getAllTestCases()
+    return data.find((testcase) => testcase.id === id)
+  } catch (err) {
+    return null
+  }
+}
+async function updateTestCase(id, updated) {
+  const data = await getAllTestCases()
+  const index = data.findIndex(tc => tc.id === id);
+  data[index] = {
+    ...data[index],
+    ...updated
+  }
+  await fs.writeJson(TEST_PATH, data, { spaces: 2 });
+  return res.status(200).json({ message: "Updated successfully", data: data.testCases[index] });
+}
+
 // ================== EXPORT ==================
 
 module.exports = {
@@ -79,4 +116,8 @@ module.exports = {
   getProfileById,
   getJobById,
   updateProfile,
+  getAllTestCases,
+  getTestCasesByProfileId,
+  getTestCaseById,
+  updateTestCase
 };
